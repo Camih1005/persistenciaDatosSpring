@@ -5,16 +5,21 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition = "VARCHAR(20)",nullable = false)
+    @Column(columnDefinition = "TEXT",nullable = true)
     private String description;
-    @Column(columnDefinition = "VARCHAR(20)",nullable = false)
+    @Column(columnDefinition = "DECIMAL(10,2)", nullable = false)
     private Long total;
+
+    @ManyToOne
+    private Person persons;
+
 
     public Invoice() {
     }

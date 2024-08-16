@@ -14,11 +14,10 @@ public class Type {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
 private Long id;
-@Column(name = "id_person",columnDefinition = "VARCHAR(20)",nullable = false)
+@Column(columnDefinition = "VARCHAR(20)",nullable = false)
 private String description;
 
-@ManyToOne
-Person persons;
+
 
 
 
@@ -41,13 +40,7 @@ public void setDescription(String description) {
     this.description = description;
 }
 
-public Person getPersons() {
-    return persons;
-}
 
-public void setPersons(Person persons) {
-    this.persons = persons;
-}
 
 
 

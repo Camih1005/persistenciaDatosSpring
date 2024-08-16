@@ -8,8 +8,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "persons")
 public class Person {
 @Id
 @Column(name = "id_person",columnDefinition = "VARCHAR(20)",nullable = false)
@@ -19,12 +21,14 @@ private String firstname;
 @Column(name = "last_name",columnDefinition = "VARCHAR(20)",nullable = false)
 private String lastname;
 
+@ManyToOne
+Type tipo;
 
 @ManyToOne
 City city;
 
-@OneToMany(cascade= CascadeType.ALL, orphanRemoval = true, mappedBy = "persons")
-private Set<Type> cities;
+// @OneToMany(cascade= CascadeType.ALL, orphanRemoval = true, mappedBy = "persons")
+// private Set<Type> tipo;
 
 
 
