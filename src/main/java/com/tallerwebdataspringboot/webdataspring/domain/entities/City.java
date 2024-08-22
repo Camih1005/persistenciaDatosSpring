@@ -2,14 +2,16 @@ package com.tallerwebdataspringboot.webdataspring.domain.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class City {
 @Id
-@Column(columnDefinition = "VARCHAR(50)", nullable = false)
-private String codeCity;
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long codeCity;
 @Column(columnDefinition = "VARCHAR(50)", nullable = false)
 private String nameCity;
 
@@ -19,11 +21,11 @@ private Region region;
 public City() {
 }
 
-public String getCodeCity() {
+public Long getCodeCity() {
     return codeCity;
 }
 
-public void setCodeCity(String codeCity) {
+public void setCodeCity(Long codeCity) {
     this.codeCity = codeCity;
 }
 
